@@ -25,6 +25,25 @@ checkpoint and park without a follow-up. A reminder or status acknowledgement is
 not permission to retry a known blocked action. A user stop/wait overrides all
 automatic messages; only an explicit user resume lifts it.
 
+## Compact Anti-Faint reminders
+
+The short reminder is sufficient even if this page cannot be fetched. Its UTC
+start and deadline describe the current work window, not a new window starting
+when the reminder arrives. At that deadline, take a brief safe checkpoint and
+end the response; do not divide the task into artificial chunks or abandon it.
+Only when an authorized next step is executable, put `[shn:followup]` alone on
+the final line. Wait for the extension's continuation before resuming. The next
+continuation supplies its own timing; never reset the old deadline yourself.
+If one branch is blocked but independent authorized work remains, that work can
+be the next step. If complete or entirely blocked, finish/park without the marker.
+A user stop/wait always wins, and no reminder grants additional permission.
+
+“Skill if unread” means read this page if you have not actually read it in this
+chat. Merely receiving its URL is not proof of reading. If access fails, say so
+and use the reminder's fallback rules; do not claim the skill was read. The
+extension currently has no reliable read acknowledgement, so this conditional
+link may recur. A normal reminder is not an Anti-Faint deadline.
+
 ## Commands
 
 Use standalone command lines only when intentionally requesting an action.
